@@ -1,8 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import HomeScreen from '../screens/HomeScreen'
+import GalleryScreen from '../screens/GalleryScreen'
 
 // Definir tipos para las rutas
 export type RootTabParamList = {
@@ -12,24 +14,6 @@ export type RootTabParamList = {
 
 // Crear el Bottom Tab Navigator con Tipado
 const Tab = createBottomTabNavigator<RootTabParamList>();
-
-// Pantalla de Inicio
-const HomeScreen: React.FC = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Pantalla de Inicio</Text>
-    </View>
-  );
-};
-
-// Pantalla de Perfil
-const ProfileScreen: React.FC = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Pantalla de Perfil</Text>
-    </View>
-  );
-};
 
 // Componente de Navegación
 const BottomTabNavigator: React.FC = () => {
@@ -53,8 +37,8 @@ const BottomTabNavigator: React.FC = () => {
           headerShown: false,
         })}
       >
-        <Tab.Screen name="Gallery" component={HomeScreen} />
-        <Tab.Screen name="Take photo" component={ProfileScreen} />
+        <Tab.Screen name="Take photo" component={HomeScreen} />
+        <Tab.Screen name="Gallery" component={GalleryScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
